@@ -1,0 +1,460 @@
+:root {
+    --main-font: sans-serif;
+    --font-size: 16px;
+    --main-color: #f7df1e;
+    --second-color: #222;
+    --main-modal-color: rgba(247,222,30,0.85);
+    --second-modal-color: rgba(34,34,34,0.85);
+    --container-width: 1200px;
+    --move-top: 535px;
+    --move-left: 75px;
+    --hamburger-right: 1vw;
+}
+
+
+html {
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+}
+
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+} 
+
+body.backgroundCol {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: default;
+}
+
+.backgroundCol.is-active {
+    background-color: grey;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.alarma {
+    display: inline-block;
+
+    padding: auto;
+    width: 100%;
+    margin-top: 15px;
+    height: 150px;
+    display: inline-block;
+    text-align: center;
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+.iniciarReloj {
+    color: white;
+    background-color: black;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 1.2rem;
+}
+
+
+.reloj {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: auto;
+    margin: auto;
+    height: 50px;
+    padding:1em;
+    display: inline-block;
+    color: #000;
+    /*background-color:aqua;*/
+    text-align: center;
+}
+
+.reloj.is-active {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: auto;
+    margin: auto;
+    height: 50px;
+    padding:1em;
+    display: inline-block;
+    color: blue;
+    /*background-color:aqua;*/
+    opacity: .9;
+    border: .5px solid;
+    border-radius: 25%;
+    border-color: #000;
+    box-shadow: 1px -1px 20px 1px #000;
+    text-align: center;
+}
+
+.detenerReloj {
+    color: white;
+    background-color: black;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 1.2rem;
+}
+
+
+.iniciarAlarma {
+    color: white;
+    background-color: black;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 1.2rem;
+}
+
+.detenerAlarma {
+    color: white;
+    background-color: black;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 1.2rem;
+}
+
+
+
+/* *********** MENU HAMBURGUESA *********** */
+
+
+.header{
+    position: sticky;
+    z-index: 995;
+    top: 0;
+    padding: 1rem;
+    background-color: var(--main-color);
+    color:var(--second-color);
+}
+
+.header h1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section {
+    padding: 2rem;
+    padding-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: var(--container-width);
+    min-height: 10vh; /*100vh para que haya bastante espacio entre secciones*/ 
+    text-align: center;
+}
+
+.panel {
+    position: fixed;
+    z-index: 998;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    background-color: var(--second-modal-color);
+    opacity: 0; 
+    visibility: hidden;
+    transition: transform .3s ease, opacity .5s ease;
+    /*transform:translate(0,-100%);
+    transform:translate(0,100%);
+    transform:translate(100%,0);*/
+    transform:translate(-100%,0);
+}
+
+.panel.is-active {
+    transform: translate(0,0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.panel-btn {
+    position:fixed;
+    z-index: 999;
+    bottom: 1vh;
+    right: var(--hamburger-right);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    outline: 0;
+
+}
+
+.menu {
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.menu a {
+    padding: 2rem;
+    width: inherit;
+    display: block;
+    font-size:1.5rem;
+    text-decoration: none;
+    color:var(--main-color);
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    font-weight: bold;
+    color:var(--second-color);
+    background-color:var(--main-modal-color);
+}
+
+
+
+/* *********** PELOTA EVENTOS TECLADO *********** */
+
+.frame {
+    background-color: #000;
+    display: flex;
+    border: 5px solid #f7df1e;
+    min-height: 50vh;
+}
+ 
+.ball {
+    background-color: var(--main-color);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin: auto;
+}
+
+
+
+/* *********** COUNTDOWN *********** */
+
+
+#seccion3 div{
+    color:#f7df1e;
+    
+}
+
+
+
+/* *********** TOP BUTTON *********** */
+
+#topButton {
+    position:fixed;
+    z-index: 999;
+    bottom: 1vh;
+    right: -20vw;
+    width:4rem;
+    height: 4rem;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    transition: all 0.3s ease;
+    outline: 0;
+
+}
+
+
+#topButton.is-active {
+    position:fixed;
+    z-index: 999;
+    bottom: 1vh;
+    right: calc(var(--hamburger-right) + 7vh);
+    width:4rem;
+    height: 4rem;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    transition: all 0.3s ease;
+    border:0px;
+
+}
+
+#topButton.is-active:hover {
+    background-color: var(--main-color);
+    opacity: 0.4;
+
+}
+
+
+
+/* *********** DARK MODE *********** */
+
+.darkmodebtn {
+    position:fixed;
+    z-index: 999;
+    bottom: 1vh;
+    left: 1vw;
+    width:4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border:0px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--second-color);
+    transition: all 0.3s ease;
+    box-shadow: 1px -1px 20px 1px var(--main-color);
+    outline: 0;
+    cursor:pointer;
+
+
+}
+
+.darkModeBtn.is-active {
+    background-color: var(--main-color);
+    transition: all 0.3s ease;
+    box-shadow: 1px -1px 20px 1px var(--second-color);
+}
+
+
+
+
+
+/************  RESPONSABLE AND RESPONSIVE DESIGN  ************/
+
+@media screen and (max-width: 700px){
+    body {
+        background-color: olive;
+    }
+}
+
+
+/************  RESPONSABLE AND RESPONSIVE DESIGN  ************/
+
+#url_tester {
+    border-color: yellow;
+    box-shadow: 0.5px -1px 20px 1px white;
+}
+
+#ancho_tester {
+    border-color: yellow;
+    box-shadow: 0.5px -1px 20px 1px white;
+
+}
+
+#alto_tester {
+    border-color: yellow;
+    box-shadow: 0.5px -1px 20px 1px white;
+
+}
+
+#submit_tester {
+    color: #000;
+}
+
+#close_tester {
+    color: #000;
+}
+
+/************  VALIDATION DNI  ************/
+
+.contentDNI{
+    display: inline-block;
+}
+
+.validatorText{
+    color: #ff0000;
+}
+.validatorText.is_active{
+    color: #2EFF00;
+}
+
+
+
+/* **********     Network Status     ********** */
+.online,
+.offline {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #1b5e20;
+  color: #fff;
+}
+
+.offline {
+  background-color: #b71c1c;
+}
+
+
+
+
+
+
+
+
+/* **********     Search Filter     ********** */
+
+.card {
+    display: inline-block;
+    background-color: var(--dark-color);
+    color: var(--main-color);
+    transition: all 0.3s ease-out;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card figcaption {
+    padding: 1rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+}
+
+.filter {
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    order: 1;
+}
+
+
+.rotate-45{
+    transform: rotate(45deg);
+}
+.rotate-135{
+    transform: rotate(135deg);
+}
+.opacity-80{
+    opacity: .8;
+}
+.sepia{
+    filter: sepia(1);
+}
+.eventos-flujo div{
+    padding: 4rem;
+    font-size: 2rem;
+    text-align: center;
+}
+.uno {
+    background-color: yellow;
+}
+.dos {
+    background-color: gold;
+}
+.tres {
+    background-color: lightyellow;
+}
