@@ -15,8 +15,6 @@ export default function search(input, selector) {
             ?el.classList.remove("filter")
             :el.classList.add("filter")
 
-
-            
             )
         }
         

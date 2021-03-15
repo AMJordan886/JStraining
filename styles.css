@@ -465,6 +465,11 @@ img {
     opacity: 0.5;
 }
 
+.leftcarousel {
+    transition: all 0.3s ease;
+}
+
+
 #arrow_right {
     width: 4rem;
     height: 4rem;
@@ -478,7 +483,7 @@ img {
 
     padding: 10;
     display: inline-block;
-    background-color: var(--second-color);
+    background-color: var(--main-color);
 }
 
 #arrow_right:hover {
@@ -487,5 +492,8 @@ img {
 
 }
 
+.rightcarousel {
+    transition: all 0.3s ease;
+}
 
 

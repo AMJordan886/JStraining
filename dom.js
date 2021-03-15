@@ -218,7 +218,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
 import carousel from "./carousel.js"
 
 d.addEventListener("DOMContentLoaded", (e) => {
-  carousel("#")
+  carousel("#carousel", "#arrow_left", "#arrow_right")
 })
 
 
