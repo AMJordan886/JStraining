@@ -14,6 +14,8 @@ export default function search(input, selector) {
             el.textContent.toLowerCase().includes(e.target.value) //el contenido textual de cada una de las figure cards, o sea no lee texto html ni hostias, solo texto plano
             ?el.classList.remove("filter")
             :el.classList.add("filter")
+
+
             
             )
         }

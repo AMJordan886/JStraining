@@ -213,6 +213,17 @@ d.addEventListener("DOMContentLoaded", (e) => {
 
 
 
+/************  RESPONSIVE CAROUSEL  ************/
+
+import carousel from "./carousel.js"
+
+d.addEventListener("DOMContentLoaded", (e) => {
+  carousel("#")
+})
+
+
+
+
 
 
 
