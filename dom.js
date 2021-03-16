@@ -206,8 +206,8 @@ import sorteo from "./sorteo.js"
 
 d.addEventListener("DOMContentLoaded", (e) => {
 
-  //sorteo("sorteodigital");
-  sorteo("sorteo_javascript", "sorteo_php", "sorteo_java", "sorteo_c", "sorteo_python", "sorteo_ruby", "sorteo_go", "sorteo_visualbasic", "sorteo_rust", "sorteo_perl","sorteobutton");
+  sorteo("#sorteobutton", ".player");
+  //sorteo("sorteo_javascript", "sorteo_php", "sorteo_java", "sorteo_c", "sorteo_python", "sorteo_ruby", "sorteo_go", "sorteo_visualbasic", "sorteo_rust", "sorteo_perl","sorteobutton");
 
 })
 
@@ -218,7 +218,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
 import carousel from "./carousel.js"
 
 d.addEventListener("DOMContentLoaded", (e) => {
-  carousel("#carousel", "#arrow_left", "#arrow_right")
+  carousel("#carousel", "#arrow_left", "#arrow_right", ".text-hidden", "#imagetemplate")
 })
 
 
@@ -227,7 +227,9 @@ d.addEventListener("DOMContentLoaded", (e) => {
 
 
 
-// Ultimo ejercicio del DOM hecho es: 32, por hacer el 94 de la camara
+
+
+
 
 
 

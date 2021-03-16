@@ -22,8 +22,8 @@ export default function geolocation(lati, long, prec, maplink) {
 
     let $latitude = d.getElementById(lati),
         $longitude = d.getElementById(long),
-        $precision = d.getElementById(prec);
-        let $maplink = d.getElementById(maplink);
+        $precision = d.getElementById(prec),
+        $maplink = d.getElementById(maplink);
 
     function location(position) {
         let lat = position.coords.latitude,

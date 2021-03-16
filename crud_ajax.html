@@ -102,8 +102,7 @@
             console.log(res);
             res.forEach((el) => {
               $template.querySelector(".name").textContent = el.nombre;
-              $template.querySelector(".constellation").textContent =
-                el.constelacion;
+              $template.querySelector(".constellation").textContent = el.constelacion;
               $template.querySelector(".edit").dataset.id = el.id;
               $template.querySelector(".edit").dataset.name = el.id;
               $template.querySelector(".edit").dataset.constellation = el.id;

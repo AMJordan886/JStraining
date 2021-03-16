@@ -1,6 +1,8 @@
 const d = document;
 
-export default function sorteo(js, php, java, c, python, ruby, go, vb, rust, perl, sorteobutton) {
+
+// Mi código
+/* export default function sorteo(js, php, java, c, python, ruby, go, vb, rust, perl, sorteobutton) {
     let $js = d.getElementById(js).textContent,
         $php = d.getElementById(php).textContent,
         $java = d.getElementById(java).textContent,
@@ -24,4 +26,30 @@ export default function sorteo(js, php, java, c, python, ruby, go, vb, rust, per
             }
         
     }) 
+} */
+
+
+// Jon Mircha
+
+
+export default function sorteo(btn, selector){
+    
+    const getWinner = (selector) => {
+        const $players = d.querySelectorAll(selector),
+        random = Math.floor(Math.random() * $players.length),
+        winner = $players[random];
+
+        console.log($players,random, winner);
+
+        return `El ganador es: ${winner.textContent}`;
+    };
+
+
+    d.addEventListener("click", (e)=>{
+        if (e.target.matches(btn)){
+            let result = getWinner(selector);
+            alert(result);
+            console.log(result);
+        }
+    })
 }

@@ -40,11 +40,6 @@
         <a href="#seccion13">Filtro de busquedas</a>
         <a href="#seccion14">Sorteo digital</a>
         <a href="#seccion15">Responsive Slider</a>
-
-
-
-
-
       </nav>
     </aside>
 
@@ -55,9 +50,9 @@
         <div class="alarma">
           <br />
           <div class="reloj"></div>
-          <br/>
-          <br/>
-          <br/>
+          <br />
+          <br />
+          <br />
           <button class="iniciarReloj" type="button">Iniciar Reloj</button>
           <button class="detenerReloj" type="button">Detener Reloj</button>
           <button class="iniciarAlarma" type="button">Iniciar Alarma</button>
@@ -165,7 +160,7 @@
       <section id="seccion12" class="section">
         <h2>Geolocalizacion</h2>
         <div>
-          Tu posicion actual es:<br>
+          Tu posicion actual es:<br />
           <ul>
             <li id="latitude">Latitude not injected</li>
             <li id="longitude">Longitude not injected</li>
@@ -179,7 +174,7 @@
 
       <section id="seccion13" class="section">
         <h2>Filtro de busquedas</h2>
-        <input type="search" placeholder="Buscar..." id="search-filter"/>
+        <input type="search" placeholder="Buscar..." id="search-filter" />
         <section class="cards">
           <figure class="card">
             <img src="https://placeimg.com/200/200/tech" alt="Tech" />
@@ -224,8 +219,7 @@
         </section>
       </section>
 
-
-      <section id="seccion14" class="section">
+      <!-- <section id="seccion14" class="section">
         <h2>Sorteo digital</h2>
         <div>
           Sorteo digital:
@@ -240,29 +234,75 @@
             <li id="sorteo_visualbasic">Visual Basic</li>
             <li id="sorteo_rust">Rust</li>
             <li id="sorteo_perl">Perl</li>
-            <br>
-            <button id="sorteobutton">click aqui</button>
+            <br />
+            <button id="sorteobutton">Obtener ganador</button>
           </ul>
         </div>
+      </section> -->
+
+      <section id="seccion11" class="section">
+        <h2>Sorteo Digital</h2>
+        <ul class="players">
+          <li class="player">JS</li>
+          <li class="player">PHP</li>
+          <li class="player">JAVA</li>
+          <li class="player">C</li>
+          <li class="player">PYTHON</li>
+          <li class="player">RUBY</li>
+          <li class="player">GO</li>
+          <li class="player">VISUAL BASIC</li>
+          <li class="player">RUST</li>
+          <li class="player">PERL</li>
+          <br>
+          <button id="sorteobutton">Obtener ganador</button>
+
+        </ul>
       </section>
-
-
 
       <section id="seccion15" class="section">
         <div id="carousel">
-          <span id="arrow_left">⬅</span>
-          <span id="arrow_right">➡</span>
+
+          
+          <!-- <template id="imagetemplate">
+            <tr>
+              <td class="image" name="imagen"></td>
+            </tr>
+          </template> -->
+
+          <span id="imagecarousel">
+            <img src="https://placeimg.com/600/375/nature"/>
+          </span>
+
+          <span id="arrow_left"><img src="./assets/left.png"/></span>
+          <span id="arrow_right"><img src="./assets/right.png"/></span>
         </div>
+
+        <section class="text-hidden">
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+            assumenda blanditiis architecto nihil quibusdam ea fugit ipsa
+            numquam, quidem nobis ex ab quae consequuntur error vel minima, at
+            ut perspiciatis?
+          </div>
+          <div>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto
+            eligendi libero cum quae nesciunt at nisi veritatis tenetur magnam
+            praesentium, placeat nobis consectetur earum ullam ut sint repellat
+            doloribus aspernatur tempora, ad, autem sequi! Reiciendis totam
+            vitae delectus mollitia quia?
+          </div>
+          <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque
+            sed nobis maiores vero amet voluptates labore, saepe culpa id neque.
+            Voluptates porro iure fugit iusto praesentium? Veritatis earum
+            praesentium pariatur quidem cupiditate odio natus architecto! Eum id
+            officia debitis consequatur, iusto, dolorum quos ipsa illo, ipsam
+            facere possimus! Mollitia, enim!
+          </div>
+        </section>
       </section>
 
-
-
-
-
-
-
-
-      <br><br><br><br><br><br><br><br><br><br>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       <footer id="main-footer">
         <nav>
           <ul>
@@ -274,7 +314,6 @@
           </ul>
         </nav>
       </footer>
-
     </main>
   </body>
   <script src="/dom.js" type="module"></script>
