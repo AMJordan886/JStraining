@@ -37,6 +37,19 @@ export default function carousel(carousel, left, right, text, template) {
                 /* let $clone = d.importNode($template, true);
                 $fragment.appendChild($clone);
 
+
+
+
+
+
+                
+//$table.querySelector("tbody").appendChild($fragment);     > Quiza faltaba esto
+
+
+
+
+
+
                 console.log($clone)
                 console.log($fragment) */
 
