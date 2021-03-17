@@ -117,7 +117,7 @@ el puerto por defecto 3000 es un puerto conflictivo porque desde ahi se levantan
 
     async function getData() {
         try {
-            let res /*res de respuesta*/ = await fetch("https://jsonplaceholder.typicode.com/users"),                //await porque espera la respuesta del servidor
+            let res /*res de respuesta*/ = await fetch("https://jsonplaceholder.typicode.com/users"),                //await porque espera la respuesta del servidor - Metodo por defecto GET aunque en crud_fetch lo he puesto y no va
                 json = await res.json();   //Metodo .json() o .text() segun lo que estemos esperando recibir            //y await porque espera a la respuesta para convertir a formato Json
 
 
@@ -234,19 +234,7 @@ el puerto por defecto 3000 es un puerto conflictivo porque desde ahi se levantan
 
 /* CLASE 111 TEORIA */
 /* CLASE 112 INSTALACION JSON PLACEHOLDER & INSOMNIA*/
-/*
-IMPORTANTE:
-EN LA CLASE 112 AL UTILIZAR EL LOCALHOST:3000 SI NO PARA EL SERVIDOR CON CTRL+C     =>
-
-netstat -ano | findstr :3000     //el puerto que sea y ahora desde el ID que nos da matamos el proceso
-taskkill /F /PID 50884           //O el id que sea
-
-
-LEVANTAR EL SERVIDOR API FAKE
-//el puerto por defecto 3000 es un puerto conflictivo porque desde ahi se levantan multiples servicios//
-json-server --watch assets/db.json             =>     asi lo levanta en el 3000 por defecto
-json-server -w -p 5555 assets/db.json          =>     5555es el puerto elegido en este caso
-*/
+ 
 
 
 

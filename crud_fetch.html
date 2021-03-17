@@ -52,6 +52,20 @@
     </template>
 
     <script>
+      /*
+        IMPORTANTE:
+        EN LA CLASE 112 AL UTILIZAR EL LOCALHOST:3000 SI NO PARA EL SERVIDOR CON CTRL+C     =>
+
+        netstat -ano | findstr :3000     //el puerto que sea y ahora desde el ID que nos da matamos el proceso
+        taskkill /F /PID 50884           //O el id que sea
+
+
+        LEVANTAR EL SERVIDOR API FAKE
+        //el puerto por defecto 3000 es un puerto conflictivo porque desde ahi se levantan multiples servicios//
+        json-server --watch assets/db.json             =>     asi lo levanta en el 3000 por defecto
+        json-server -w -p 5555 assets/db.json          =>     5555es el puerto elegido en este caso
+    */
+
       const d = document;
       const $table = d.querySelector(".crud-table"),
         $form = d.querySelector(".crud-form"),
@@ -64,16 +78,17 @@
           let res = await fetch("http://localhost:5555/santos"); //el primer parametro de fetch es la URL y el segundo el method, si no hay metodo cogerá GET por defecto
           let json = await res.json();
 
-          if (!res.ok)
-            throw { status: res.status, statusText: res.statusText };
+          if (!res.ok) throw { status: res.status, statusText: res.statusText };
 
           console.log(json);
           json.forEach((e) => {
             $template.querySelector(".name").textContent = e.nombre;
-            $template.querySelector(".constellation").textContent = e.constelacion;
+            $template.querySelector(".constellation").textContent =
+              e.constelacion;
             $template.querySelector(".edit").dataset.id = e.id;
             $template.querySelector(".edit").dataset.name = e.nombre;
-            $template.querySelector(".edit").dataset.constellation = e.constelacion;
+            $template.querySelector(".edit").dataset.constellation =
+              e.constelacion;
             $template.querySelector(".delete").dataset.id = e.id;
 
             let $clone = d.importNode($template, true);
@@ -83,11 +98,112 @@
           $table.querySelector("tbody").appendChild($fragment);
         } catch (err) {
           let message = err.statusText || "Ocurrió un error";
-          $table.insertAdjacentHTML("afterend", `<p><b>Error ${err.status}: ${message}</b></p>`);
+          $table.insertAdjacentHTML(
+            "afterend",
+            `<p><b>Error ${err.status}: ${message}</b></p>`
+          );
         }
       };
 
-      d.addEventListener("DOMContentLoaded", getAll);
+      d.addEventListener("DOMContentLoaded", getAll); //A la carga del documento DOMContentLoaded ejecutamos la función para traernos GET todos los santos
+
+      d.addEventListener("submit", async (e) => {
+        if (e.target === $form) {
+          e.preventDefault();
+
+          if (!e.target.id.value) {
+            //Create -- POST
+            try {
+              let options = {
+                method: "POST",
+                headers: {
+                  "Content-type": "application/json; charset=utf-8",
+                },
+                body: JSON.stringify({
+                  nombre: e.target.nombre.value,
+                  constelacion: e.target.constelacion.value,
+                }),
+              };
+              let res = await fetch("http://localhost:5555/santos", options),
+                json = await res.json();
+
+              if (!res.ok)
+                throw { status: res.status, statusText: res.statusText }; //throw arrojo el objeto con dos clave valor, status y statusText    >     Error 404
+              location.reload();
+            } catch (err) {
+              let message = err.statusText || "Ocurrió un error";
+              $form.insertAdjacentHTML(
+                "afterend",
+                `<p><b>${err.status}: ${message}</b></p>`
+              );
+            }
+          } else {
+            //Update -- PUT
+            try {
+              let options = {
+                method: "PUT",
+                headers: {
+                  "Content-type": "application/json; charset=utf-8",
+                },
+                body: JSON.stringify({
+                  nombre: e.target.nombre.value,
+                  constelacion: e.target.constelacion.value,
+                }),
+              };
+              let res = await fetch(
+                  `http://localhost:5555/santos/${e.target.id.value}`,
+                  options
+                ),
+                json = await res.json();
+
+              if (!res.ok)
+                throw { status: res.status, statusText: res.statusText }; //throw arrojo el objeto con dos clave valor, status y statusText    >     Error 404
+            } catch (err) {
+              let message = err.statusText || "Ocurrió un error";
+              $form.insertAdjacentHTML(
+                "afterend",
+                `<p><b>${err.status}: ${message}</b></p>`
+              );
+            }
+          }
+        }
+      });
+
+      d.addEventListener("click", async (e) => {
+        if (e.target.matches(".edit")) {
+          $title.textContent = "Editar santo";
+          $form.nombre.value = e.target.dataset.name;
+          $form.constelacion.value = e.target.dataset.constellation;
+          $form.id.value = e.target.dataset.id;
+        }
+
+        if(e.target.matches(".detele")){
+          let isDelete = confirm(`¿Estas seguro de que desea eliminar ${e.target.datased.id}?`);
+
+          if (isDelete) {
+            //Delete -- DELETE
+            try {
+              let options = {
+                method: "DELETE",
+                headers: {
+                  "Content-type": "application/json; charset=utf-8"
+                }
+              };
+
+              let res = await fetch(`http://localhost:5555/santos/${e.target.dataset.id}`, options),
+                json = await res.json();
+
+              if (!res.ok) throw { status: res.status, statusText: res.statusText }; //throw arrojo el objeto con dos clave valor, status y statusText    >     Error 404
+              
+              location.reload();
+            } 
+            catch (err) {
+              let message = err.statusText || "Ocurrió un error";
+              alert(`Error: ${err.status}: ${message}`);
+            }
+          }
+        }
+      });
     </script>
   </body>
 </html>
