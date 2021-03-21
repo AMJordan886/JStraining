@@ -34,7 +34,7 @@
             </table>
         </article>
     </section>
-
+    
     <template id="crud-template">
         <tr>
             <td class="name"></td>
@@ -45,16 +45,74 @@
             </td>
         </tr>
     </template>
-
-
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        const d = document;
-        const $table = d.querySelector(".crud-table"),
-        $form = d.querySelector(".crud-form"),
-        $title = d.querySelector(".crud-title"),
-        $template = d.getElementById("crud-template").content,
-        $fragment = d.createDocumentFragment();
-    </script>
+        /*
+        IMPORTANTE:
+        EN LA CLASE 112 AL UTILIZAR EL LOCALHOST:3000 SI NO PARA EL SERVIDOR CON CTRL+C     =>
+        
+        netstat -ano | findstr :3000     //el puerto que sea y ahora desde el ID que nos da matamos el proceso
+        taskkill /F /PID 50884           //O el id que sea
+        
+        
+        LEVANTAR EL SERVIDOR API FAKE
+        //el puerto por defecto 3000 es un puerto conflictivo porque desde ahi se levantan multiples servicios//
+        json-server --watch assets/db.json             =>     asi lo levanta en el 3000 por defecto
+        json-server -w -p 5555 assets/db.json          =>     5555es el puerto elegido en este caso
+        */
+       
+       const d = document;
+       const $table = d.querySelector(".crud-table"),
+       $form = d.querySelector(".crud-form"),
+       $title = d.querySelector(".crud-title"),
+       $template = d.getElementById("crud-template").content,
+       $fragment = d.createDocumentFragment();
+       
+       
+       
+       //async function getAll() {
+      const getAll = async () => {
+
+           try {
+               let res = await axios.get("http://localhost:5555/santos"),
+               json = await res.data;
+               
+               console.log(res)
+               
+               json.forEach((el) => {
+                   $template.querySelector(".name").textContent = e.nombre;
+                   $template.querySelector(".constellation").textContent = e.constelacion;
+                   $template.querySelector(".edit").dataset.id = e.id;
+                   $template.querySelector(".edit").dataset.name = e.nombre;
+                   $template.querySelector(".edit").dataset.constellation = e.constelacion;
+                   $template.querySelector(".delete").dataset.id = e.id;
+                   
+                   let $clone = d.importNode($template, true);
+                   $fragment.appendChild($clone);
+                   
+                })
+                $table.querySelector("tbody").appendChild($fragment);
+                
+            }
+            catch (err) {
+                console.log("Esto es un error get de axios async: ", err.response);
+                let message = err.response.statusText || "Ocurrió un error"; //response es un metodo de axios diferente a los anteriores
+                $table.insertAdjacentHTML("afterend", `<p><b>Error ${err.status}: ${message}</b></p>`);
+            }
+            finally {
+                console.log("Esto siempre se ejecuta, es un finally")
+            }
+            
+        }
+        
+        d.addEventListener("DOMContentLoaded", getAll);
+        
+        
+        
+        
+        </script>
 
 
 </body>

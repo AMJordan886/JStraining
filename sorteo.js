@@ -58,12 +58,27 @@ export default function sorteo(btn, selector){
 
 
 
+
+
+
+
 //Scraper YouTube
 const getWinnerComment = (selector) => { //El selector de la funcion realmente son las etiquetas HTML que queremos inspeccionar
-    const $players = document.querySelectorAll(selector), //Seleccionamos todas las etiquetas que contenngan ("ytd-comment-thread-renderer #author-text span")
+    const $players = document.querySelectorAll(selector), //Seleccionamos todas las etiquetas que contengan ("ytd-comment-thread-renderer #author-text span")
     random = Math.floor(Math.random() * $players.length),
     winner = $players[random];
-
     return `El ganador es: ${winner.textContent}`; //El textContent porque al ser una lista de nodos nos daria el numero ganador de la lista 
 };
 //getWinnerComment("ytd-comment-thread-renderer #author-text span")
+
+
+
+
+const scrap = (select) => { 
+    const capture = document.querySelectorAll(select);
+    console.log(select.content);
+    console.log(select.textContent);
+    console.log(select);
+    return `El ganador es: ${capture.textContent}`;
+};
+//scrap("matrix row amount in span");

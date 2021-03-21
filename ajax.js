@@ -151,6 +151,9 @@ el puerto por defecto 3000 es un puerto conflictivo porque desde ahi se levantan
 
 /* CLASE 109 AJAX LIBRERIA AXIOS */
 /*hay que mandar a llamar una libreria externa en los scripts del html*/
+
+//   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 (() => {
     const $axios = document.getElementById('axios'),
         $fragment = document.createDocumentFragment(); //carga los elementos y cuando están cargados los inserta, no lo va haciendo poco a poco segun van llegando
@@ -188,6 +191,10 @@ el puerto por defecto 3000 es un puerto conflictivo porque desde ahi se levantan
 
 
 /* CLASE 110 AJAX LIBRERIA AXIOS + ASYNC AWAIT */
+
+//   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
 (() => {
     const $axiosAsync = document.getElementById('axios-async'),
         $fragment = document.createDocumentFragment();

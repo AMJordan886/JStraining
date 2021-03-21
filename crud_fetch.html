@@ -83,12 +83,10 @@
           console.log(json);
           json.forEach((e) => {
             $template.querySelector(".name").textContent = e.nombre;
-            $template.querySelector(".constellation").textContent =
-              e.constelacion;
+            $template.querySelector(".constellation").textContent = e.constelacion;
             $template.querySelector(".edit").dataset.id = e.id;
             $template.querySelector(".edit").dataset.name = e.nombre;
-            $template.querySelector(".edit").dataset.constellation =
-              e.constelacion;
+            $template.querySelector(".edit").dataset.constellation = e.constelacion;
             $template.querySelector(".delete").dataset.id = e.id;
 
             let $clone = d.importNode($template, true);
@@ -177,8 +175,8 @@
           $form.id.value = e.target.dataset.id;
         }
 
-        if(e.target.matches(".detele")){
-          let isDelete = confirm(`¿Estas seguro de que desea eliminar ${e.target.datased.id}?`);
+        if(e.target.matches(".delete")){
+          let isDelete = confirm(`¿Estas seguro de que desea eliminar ${e.target.dataset.id}?`);
 
           if (isDelete) {
             //Delete -- DELETE
