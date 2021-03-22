@@ -49,6 +49,26 @@
       "nombre": "Aioria",
       "constelacion": "Leo",
       "id": 10
+    },
+    {
+      "nombre": "asere",
+      "constelacion": "aserre",
+      "id": 13
+    },
+    {
+      "nombre": "asd",
+      "constelacion": "asdf",
+      "id": 14
+    },
+    {
+      "nombre": "trtrtrt",
+      "constelacion": "trtrtrtrt",
+      "id": 15
+    },
+    {
+      "nombre": "trtr",
+      "constelacion": "rtrt",
+      "id": 16
     }
   ],
   "dioses": [
