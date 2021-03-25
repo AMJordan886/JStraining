@@ -125,7 +125,7 @@
               let res = await fetch("http://localhost:5555/santos", options),
                 json = await res.json();
 
-              if (!res.ok)
+              if (!res.ok) //EN AXIOS NO ES NECESARIO MANIPULAR EL ERROR DESDE AQUI
                 throw { status: res.status, statusText: res.statusText }; //throw arrojo el objeto con dos clave valor, status y statusText    >     Error 404
               location.reload();
             } catch (err) {
