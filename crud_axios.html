@@ -62,7 +62,6 @@
                 netstat -ano | findstr :3000     //el puerto que sea y ahora desde el ID que nos da matamos el proceso
                 taskkill /F /PID 50884           //O el id que sea
 
-
                 LEVANTAR EL SERVIDOR API FAKE
                 //el puerto por defecto 3000 es un puerto conflictivo porque desde ahi se levantan multiples servicios//
                 json-server --watch assets/db.json             =>     asi lo levanta en el 3000 por defecto
@@ -84,12 +83,10 @@
 
               json.forEach((e) => {
                   $template.querySelector(".name").textContent = e.nombre;
-                  $template.querySelector(".constellation").textContent =
-                      e.constelacion;
+                  $template.querySelector(".constellation").textContent = e.constelacion;
                   $template.querySelector(".edit").dataset.id = e.id;
                   $template.querySelector(".edit").dataset.name = e.nombre;
-                  $template.querySelector(".edit").dataset.constellation =
-                      e.constelacion;
+                  $template.querySelector(".edit").dataset.constellation = e.constelacion;
                   $template.querySelector(".delete").dataset.id = e.id;
 
                   let $clone = d.importNode($template, true);
