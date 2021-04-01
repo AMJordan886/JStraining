@@ -1,21 +1,18 @@
 const d = document;
 
 export function asideVisible(){
-    if(window.scrollX >= 1000) {
-        console.log(window.scrollX)
-        console.log(scrollY);       
 
-        d.querySelector(".panel").classList.toggle(".visible")
-    } else {
-        console.log(scrollY);       
-        console.log(window.scrollX)
+    window.addEventListener("resize", (e) => {
+        if (window.innerWidth >= 1300) {
+          console.log(window.innerWidth)
+          d.querySelector(".panel2").classList.add("visible")
 
-    }
+        } else {
+          d.querySelector(".panel2").classList.remove("visible")
+          
+        }
+    })
 }
-asideVisible();
-
-
-
 
 
 
@@ -38,7 +35,9 @@ let decreasingColor = "rgba(190, 40, 40, ratio)";
 
 // Set things up
 window.addEventListener("load", (event) => {
-  boxElement = document.querySelector("#seccion16");
+  boxElement = document.querySelector("#section1","#section2","#section3","#section4",
+  "#section5","#section6","#section7","#section8","#section9","#section10","#section11",
+  "#section12","#section13","#section14","#section15","#section16"); 
 
   createObserver();
 }, false);
