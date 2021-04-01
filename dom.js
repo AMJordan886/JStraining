@@ -225,9 +225,13 @@ d.addEventListener("DOMContentLoaded", (e) => {
 
 
 
+/************  SCROLLSPY  ************/
 
-
-
+import { createObserver } from "./scrollspy.js";
+import { buildThresholdList } from "./scrollspy.js";
+import { handleIntersect } from "./scrollspy.js";
+import { asideVisible } from "./scrollspy.js";
+asideVisible();
 
 
 

@@ -228,11 +228,6 @@ el puerto por defecto 3000 es un puerto conflictivo porque desde ahi se levantan
 
     }
 
-
-
-
-
-
     getData();
 })();
 

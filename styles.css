@@ -16,6 +16,16 @@ html {
     font-family: var(--main-font);
     font-size: var(--font-size);
     scroll-behavior: smooth;
+
+    /* Esto de abajo viene de section para centrar el footer */
+    padding: 2rem;
+    padding-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: var(--container-width);
+    min-height: 10vh;
+    text-align: center;
 }
 
 *, *:before, *:after {
@@ -36,6 +46,15 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+
+ul {
+    list-style-type: none;
+}
+
+
+
+/* *********** ALARMA *********** */
 
 .alarma {
     display: inline-block;
@@ -155,6 +174,12 @@ img {
     transform:translate(0,100%);
     transform:translate(100%,0);*/
     transform: translate(-100%, 0);
+}
+
+.panel.visible {
+    /* cozas */
+    flex-direction: column;
+
 }
 
 .panel.is-active {
@@ -513,3 +538,33 @@ img {
 .text-hidden {
     visibility: hidden;
 }
+
+
+
+/**************** SCROLLSPY ****************/
+
+#seccion16 {
+    background-color: rgba(40, 40, 190, 255);
+    border: 4px solid rgb(20, 20, 120);
+    transition: background-color 1s, border 1s;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .vertical {
+    color: white;
+    font: 32px "Arial";
+  }
+  
+  .extra {
+    width: 350px;
+    height: 350px;
+    margin-top: 10px;
+    border: 4px solid rgb(20, 20, 120);
+    text-align: center;
+    padding: 20px;
+  }
