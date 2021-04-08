@@ -66,6 +66,14 @@
 
 </head>
 <body>
+    <?php
+    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+    
+     if($_GET["error"]=="si"){
+         echo "<span style=\"color:#F00; font-size:2em;\">Verifica tus datos</span>";
+     }
+    ?>
+
     <hgroup><h1>Formulario de Datos GET</h1></hgroup>
     <form name="valida_datos_get_frm" action="validar-datos.php" method="GET" enctype="application/x-www-form-urlencoded">
         Ingresa tu nombre:
