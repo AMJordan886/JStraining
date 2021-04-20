@@ -14,18 +14,26 @@ echo "estoy conectado a mysql<br>";
 mysqli_select_db($conexion, "mis_contactos") or die("No se pudo seleccionar la BD");
 echo "Base de datos contactos seleccionada<br>";
 //https://stackoverflow.com/questions/13979210/mysqli-select-db-expects-parameter-1-to-be-mysqli-string-given
+//https://stackoverflow.com/questions/26639619/warning-mysqli-query-expects-parameter-1-to-be-mysqli-string-given-in
 
 //3) Crear una consulta SQL
 $consulta = "SELECT * FROM pais";
 
 
 //4) Ejecutar la consulta SQL
-//mysqli_query necesita 2 parametros: la consulta y la conexion
-$ejecutar_consulta = mysqli_query($consulta, $conexion) or die ("No se ha ejecutado la consulta a la BD");
+//mysqli_query necesita 2 parametros: la conexion y la consulta
+$ejecutar_consulta = mysqli_query($conexion,$consulta) or die("No se ha ejecutado la consulta a la BD");
 
 //5) Mostrar el resultado de ejecutar la consulta, dentro de un ciclo y en una variable voy a ingresar la funcion mysql_fetch_array
 while($registro = mysqli_fetch_array($ejecutar_consulta)){
-    echo $registro["id_pais"]." - "-$registro["pais"]."<br>";
+    echo $registro["id_pais"]." - ".$registro["pais"]."<br>";
 }
 
+//6) Cerrar la conexion a la BD
+mysqli_close($conexion) or die ("Ocurrio un error");
+echo "Conexion cerrada";
+
+
+
+//MIN 32
 ?>
