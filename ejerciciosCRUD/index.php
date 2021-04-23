@@ -1,3 +1,6 @@
+<!-- Se debe hacer a traves de Ajax sin que cambie el link, para eso debo construir primero mi API en la raspi y terminar PHP -->
+
+
 <?php
 
 error_reporting(E_ALL ^ E_NOTICE);
