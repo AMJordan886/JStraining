@@ -54,7 +54,8 @@ switch ($op) {
             <a href="?op=acerca">Acerca</a>
             <a href="?op=servicios">Servicios</a>
             <a href="?op=contacto">Contacto</a>
-            <button onclick="getAll()">PRUEBA</button>          </nav>
+            <button onclick="getAll()" name="acerca">PRUEBA</button>          
+          </nav>
 
           <!-- <nav class="menu">
             <a href="?op=home">Home</a>
@@ -85,7 +86,15 @@ switch ($op) {
 
       const getAll = async () => {
         try {
-          let res = await fetch("http://curso-php.localhost.com/BackEnd-RaspberryPI4/php/router.php"); //el primer parametro de fetch es la URL y el segundo el method, si no hay metodo cogerá GET por defecto
+          let res = await fetch("http://curso-php.localhost.com/BackEnd-RaspberryPI4/php/router.php" , {
+            method: 'POST',
+            mode:'no-cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }); //el primer parametro de fetch es la URL y el segundo el method, si no hay metodo cogerá GET por defecto
           console.log("respuesta hecha");
           //let json = await res.json();
 
