@@ -1,0 +1,124 @@
+<!-- Se debe hacer a traves de Ajax sin que cambie el link, para eso debo construir primero mi API en la raspi y terminar PHP -->
+
+
+<!-- <?php
+
+error_reporting(E_ALL ^ E_NOTICE);
+$op = $_GET["op"];
+switch ($op) {
+    case 'home':
+        $contenido = "assets/home.html";
+        $titulo = "Home";
+        break;
+    case 'acerca':
+        $contenido = "assets/acerca.html";
+        $titulo = "Acerca de nosotros";
+        break;
+    case 'servicios':
+        $contenido = "assets/servicios.html";
+        $titulo = "Servicios";
+        break;
+    case 'contacto':
+        $contenido = "assets/contacto.php";
+        $titulo = "Contacto";
+        break;
+    
+    default:
+        $contenido = "assets/home.html";
+        $titulo = "Home v1";
+        break;
+}
+
+?> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>  WEB REACTIVA <!-- <?php echo $titulo; ?> --> </title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <section class="header-content container">
+          <article class="logo">
+            <img src="https://jonmircha.com/img/kEnAi.svg" alt="kEnAi">
+          </article>
+
+          <nav class="menu">
+            <a href="?op=home">Home</a>
+            <a href="?op=acerca">Acerca</a>
+            <a href="?op=servicios">Servicios</a>
+            <a href="?op=contacto">Contacto</a>
+            <button onclick="getAll()">PRUEBA</button>          </nav>
+
+          <!-- <nav class="menu">
+            <a href="?op=home">Home</a>
+            <a href="?op=acerca">Acerca</a>
+            <a href="?op=servicios">Servicios</a>
+            <a href="?op=contacto">Contacto</a>
+          </nav> -->
+        </section>
+      </header>
+      <main class="container">
+       <section>
+                <!-- <?php include($contenido);?> -->
+       </section>
+      </main>
+    <footer class="footer container">
+        <p>
+            <small>sitio diseñado por kEnAi</small>
+        </p>
+    </footer>
+
+    <script>
+      const d = document;
+      /* const $table = d.querySelector(".crud-table"),
+        $form = d.querySelector(".crud-form"),
+        $title = d.querySelector(".crud-title"),
+        $template = d.getElementById("crud-template").content,
+        $fragment = d.createDocumentFragment(); */
+
+      const getAll = async () => {
+        try {
+          let res = await fetch("http://curso-php.localhost.com/BackEnd-RaspberryPI4/php/router.php"); //el primer parametro de fetch es la URL y el segundo el method, si no hay metodo cogerá GET por defecto
+          console.log("respuesta hecha");
+          //let json = await res.json();
+
+          if (!res.ok) throw { status: res.status, statusText: res.statusText };
+/* 
+          console.log(json);
+          json.forEach((e) => {
+            $template.querySelector(".name").textContent = e.nombre;
+            $template.querySelector(".constellation").textContent = e.constelacion;
+            $template.querySelector(".edit").dataset.id = e.id;
+            $template.querySelector(".edit").dataset.name = e.nombre;
+            $template.querySelector(".edit").dataset.constellation = e.constelacion;
+            $template.querySelector(".delete").dataset.id = e.id;
+
+            let $clone = d.importNode($template, true);
+            $fragment.appendChild($clone);
+            
+          });*/
+
+          //$table.querySelector("tbody").appendChild($fragment);
+        } catch (err) {
+          let message = err.statusText || "Ocurrió un error";
+          //$table.insertAdjacentHTML("afterend",`<p><b>Error ${err.status}: ${message}</b></p>`);
+        }
+      };
+
+      d.addEventListener("DOMContentLoaded", getAll); //A la carga del documento DOMContentLoaded ejecutamos la función para traernos GET todos los santos
+</script>
+
+
+
+
+
+
+</body>
+</html>
