@@ -52,7 +52,8 @@ switch ($op) {
           <nav class="menu">
             <a href="?op=home">Home</a>
             <a href="?op=acerca">Acerca</a>
-            <a href="?op=servicios">Servicios</a>
+            <input type="button" id="acerca" name="acerca" value="Acerca">
+            <a name="servicios" href='petition()'>Servicios</a>
             <a href="?op=contacto">Contacto</a>
             <button onclick="getAll()" name="acerca">PRUEBA</button>          
           </nav>
@@ -66,7 +67,7 @@ switch ($op) {
         </section>
       </header>
       <main class="container">
-       <section>
+       <section id="content">
                 <!-- <?php include($contenido);?> -->
        </section>
       </main>
@@ -76,15 +77,10 @@ switch ($op) {
         </p>
     </footer>
 
-    <script>
+    <!-- <script>
       const d = document;
-      /* const $table = d.querySelector(".crud-table"),
-        $form = d.querySelector(".crud-form"),
-        $title = d.querySelector(".crud-title"),
-        $template = d.getElementById("crud-template").content,
-        $fragment = d.createDocumentFragment(); */
-
-      const getAll = async () => {
+     
+      const petition = async () => {
         try {
           let res = await fetch("http://curso-php.localhost.com/BackEnd-RaspberryPI4/php/router.php" , {
             method: 'POST',
@@ -96,32 +92,40 @@ switch ($op) {
             }
           }); //el primer parametro de fetch es la URL y el segundo el method, si no hay metodo cogerá GET por defecto
           console.log("respuesta hecha");
-          //let json = await res.json();
+          let json = await res.json();
 
-          if (!res.ok) throw { status: res.status, statusText: res.statusText };
-/* 
-          console.log(json);
-          json.forEach((e) => {
-            $template.querySelector(".name").textContent = e.nombre;
-            $template.querySelector(".constellation").textContent = e.constelacion;
-            $template.querySelector(".edit").dataset.id = e.id;
-            $template.querySelector(".edit").dataset.name = e.nombre;
-            $template.querySelector(".edit").dataset.constellation = e.constelacion;
-            $template.querySelector(".delete").dataset.id = e.id;
-
-            let $clone = d.importNode($template, true);
-            $fragment.appendChild($clone);
+          //if (!res.ok) throw { status: res.status, statusText: res.statusText };
             
-          });*/
+          console.log(json);
+          console.log(res);
 
-          //$table.querySelector("tbody").appendChild($fragment);
+  
         } catch (err) {
           let message = err.statusText || "Ocurrió un error";
-          //$table.insertAdjacentHTML("afterend",`<p><b>Error ${err.status}: ${message}</b></p>`);
         }
       };
+      document.getElementById("acerca").onclick = petition;
+</script> -->
 
-      d.addEventListener("DOMContentLoaded", getAll); //A la carga del documento DOMContentLoaded ejecutamos la función para traernos GET todos los santos
+
+
+
+<script>
+  const petition = async () => {
+    await fetch("http://curso-php.localhost.com/BackEnd-RaspberryPI4/php/router.php")
+    .then(response => console.log("lo que sea coño"));
+    console.log($acerca);
+    /* datos.json()
+       .then(datos=>{
+      console.log(datos);
+      let result = document.getElementById('content');
+      content.innerHTML = `<li>${datos}</li>`;
+    }) */
+
+  }
+
+  document.getElementById("acerca").onclick = petition;
+
 </script>
 
 
