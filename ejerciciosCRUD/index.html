@@ -55,7 +55,6 @@ switch ($op) {
             <input type="button" id="acerca" name="acerca" value="Acerca">
             <a name="servicios" href='petition()'>Servicios</a>
             <a href="?op=contacto">Contacto</a>
-            <button onclick="getAll()" name="acerca">PRUEBA</button>          
           </nav>
 
           <!-- <nav class="menu">
@@ -111,10 +110,18 @@ switch ($op) {
 
 
 <script>
+  const d = document;
+  let data = "hello";
+
+
   const petition = async () => {
-    await fetch("http://curso-php.localhost.com/BackEnd-RaspberryPI4/php/router.php")
-    .then(response => console.log("lo que sea coño"));
-    console.log($acerca);
+    await fetch("http://curso-php.localhost.com/BackEnd-RaspberryPI4/php/router.php", {
+      method: 'post',
+      body: data})
+    .then(function(response){
+      return response.json();
+    });
+    //console.log($acerca);
     /* datos.json()
        .then(datos=>{
       console.log(datos);
