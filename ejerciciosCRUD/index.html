@@ -55,10 +55,17 @@ switch ($op) {
             <input type="button" id="acerca" name="acerca" value="Acerca">
             <!-- <input type="button" id="enviar-get" name="enviar_btn" value="Enviar por GET"> -->
 
-            <a name="servicios" href='petition()'>Servicios</a>
-            
+            <a name="servicios" href="petition('patata')">Servicios</a>
+
             <!-- mis dieses por lo de abajo -->
-            <a href="javascript:void(0);" onclick="petition()">Contacto</a>
+            <a href="javascript:void(0);" onclick="mierda('patata')">Contacto</a>
+
+
+            <script>
+function mierda(mierda) {
+  console.log(mierda);
+}
+            </script>
           </nav>
 
           <!-- <nav class="menu">
@@ -117,9 +124,11 @@ switch ($op) {
   const d = document;
   
   
-  const petition = async () => {
-    console.log("nosequequeseyo");
-    await fetch("http://curso-php.localhost.com/BackEnd-RaspberryPI4/php/router.php")   //, {
+  const petition = async (dato) => {
+    await fetch("http://curso-php.localhost.com/BackEnd-RaspberryPI4/php/router.php?acerca="+dato)   //, {
+      //console.log("nosequequeseyo");
+      //console.log(dato);
+
       //method: 'get',
       //body: data})
     .then((response) => {
