@@ -16,6 +16,10 @@ En MySQL existen 2 tipos de engine para tablas:
 1) MyISAM - Tablas planas como si fuera Excel
 2) InnoDB - Tablas Relacionales como si fuera Access
 
+
+http://mysql.conclase.net/curso/index.php
+
+
 no te olvides el WHERE en el noseque
  */
 
