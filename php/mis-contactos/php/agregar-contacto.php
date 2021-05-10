@@ -7,7 +7,7 @@ $nacimiento = $_POST["nacimiento_txt"];
 $telefono = $_POST["telefono_txt"];
 $pais = $_POST["pais_slc"];
 //Dependiendo del sexo ponemos una imagen predeterminada
-$imagen_generica = ($sexo == "M")?"img/fotos/amigo.png":"img/fotos/amiga.png";
+$imagen_generica = ($sexo == "M")?"amigo.png":"amiga.png";
 //verificamos que no exista previamente el email del usuario en la BD
 include("conexion.php");
 $consulta = "SELECT * FROM contactos WHERE email='$email'";

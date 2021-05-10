@@ -7,9 +7,13 @@ $ejecutar_consulta = $conexion->query($consulta);
 
 
 while($registro = $ejecutar_consulta->fetch_assoc()){
-    echo "<option value='".utf8_encode($registro["email"])."'>".utf8_encode($registro["email"])."</option>";
+    echo "<option value='".utf8_encode($registro["email"])."'";
+    if($_GET["contacto_slc"]==$registro["email"]){
+        echo " Selected";
+        }
+        echo ">".utf8_encode($registro["email"])."</option>";
 }
 
-$conexion->close();
+//$conexion->close();
 //header("Location: ../index.php?op=baja&mensaje=$mensaje");
 ?>
