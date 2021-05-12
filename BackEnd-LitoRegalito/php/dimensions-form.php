@@ -7,8 +7,9 @@ include("connection.php");
 
 //La imagen tiene que procesarse en otro archivo con funcion
 $type = $_FILES["photo_fls"]["type"];
-$file = $_FILES["photo_fls"]["type"];
-$image = functionuploadimage(3parametros);
+$file = $_FILES["photo_fls"]["tmp_name"];
+$image = upload_image($type,$file,);
+//frontend ha de ser enctype establecido en  multipart / form-data 
 
 
 //Variables de dimensiones alto y ancho respectivamente
@@ -34,4 +35,5 @@ $phone = $_POST["phone_txt"];
 
 $con->close();
 header("Location: ../index.php"); //variable get y tal
+
 ?>
