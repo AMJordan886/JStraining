@@ -13,6 +13,10 @@ $file = $_FILES["photo_fls"]["tmp_name"];
 //frontend ha de ser enctype establecido en  multipart / form-data 
 
 
+//Aunque poner un select con las medidas a las que se lo paso sería mejor y mas facil de presupuestar
+//en plan 20x30 maximo
+//
+
 //Variables de dimensiones alto y ancho respectivamente
 //DEBEN MOSTRAR LAS DIMENSIONES MAXIMAS DE IMPRESION QUE DEBERIAN SER 220 X 300 APROX
 $height = $_POST["height_txt"];

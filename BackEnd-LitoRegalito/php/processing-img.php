@@ -24,6 +24,8 @@ function processing_img($type, $image, $email){
             $ext = ".png";
     }
 
+
+    //Que haga un resize con las dimensiones maximas posibles que venga del select con imagenes cuadradas y rectangulares
     $filesize = getimagesize($image);
     $width = $filesize[0];
     $height = $filesize[1];

@@ -1,5 +1,7 @@
 <?php 
 
+//Deberia hacer un registro previniendo inyecciones SQL
+
 function connect(){
 
     $server = "localhost";
