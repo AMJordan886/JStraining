@@ -31,7 +31,7 @@ function subir_imagen($tipo,$imagen,$email){
     //Si dentro del tipo de archiv se encuentra la palabra image significa que el archivo es una imagen
     if (strstr($tipo,"image")){
         //El archivo si es una imagen
-        if (strstr($tipo,"jpeg"))
+        if (strstr($tipo,"jpeg")) //cuidado con el formato jpg
             $extension = ".jpg";
         else if (strstr($tipo,"gif"))
             $extension = ".gif";
@@ -91,7 +91,6 @@ function subir_imagen($tipo,$imagen,$email){
                             borrar_imagenes($nombre_img,".png");
                             break;
             }
-
         }
         else{
             //no se reajusta y se sube
@@ -113,8 +112,6 @@ function subir_imagen($tipo,$imagen,$email){
         {
             return false;
     }
-
-
 }
 
 ?>

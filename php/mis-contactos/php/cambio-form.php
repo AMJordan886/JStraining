@@ -35,6 +35,16 @@
         <input type="hidden" name="foto_hdn" value="<?php echo $registro_contacto["imagen"]; ?>" />
         <div>
             <img src="<?php echo "img/fotos/".$registro_contacto["imagen"]; ?>">
+            
+            <span> 
+                <?php
+                $registro_contacto["imagen"]["tmp_name"];
+                //echo  "$patata";
+
+                //echo $patata;
+                echo " patata";
+                ?> 
+            </span>
         </div>
     </div>
 </div>
