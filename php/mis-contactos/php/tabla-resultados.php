@@ -1,10 +1,14 @@
 <?php
-include("conexion.php");
+
+if (empty($_GET["pais_slc"])) {
+    include("conexion.php");
+}
+
 include("funciones.php");
 $ejecutar_consulta = $conexion->query($consulta);
 $num_regs = $ejecutar_consulta->num_rows;
 
-echo $num_regs;
+//echo $num_regs;
 
 if ($num_regs == 0) {
     echo "<br><br><span class='mensajes'>No se encontraron registros con esta búsqueda.</span><br><br>";
@@ -30,17 +34,18 @@ if ($num_regs == 0) {
     </thead>
     <tbody>
     <?php
-    while ($registros = $ejecutar_consulta->fetch_assoc())
+    while ($registro = $ejecutar_consulta->fetch_assoc())
     {
         ?>
         <tr>
             <td><?php echo utf8_decode($registro["email"]);  ?></td>
             <td><?php echo utf8_decode($registro["nombre"]);  ?></td>
-            <td><?php echo utf8_decode($registro["sexo"]);  ?></td>
+            <td><?php echo ($registro["sexo"]=="M")?"Masculino":"Femenino" ;  ?></td>
             <td><?php echo utf8_decode($registro["nacimiento"]);  ?></td>
             <td><?php echo utf8_decode($registro["telefono"]);  ?></td>
             <td><?php echo utf8_decode($registro["pais"]);  ?></td>
-            <td><?php echo utf8_decode($registro["imagen"]);  ?></td>
+
+            <td><img src="img/fotos/<?php echo utf8_decode($registro["imagen"]);  ?>" /></td>
         </tr>
     <?php
     }

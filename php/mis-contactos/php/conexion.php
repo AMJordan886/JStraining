@@ -11,6 +11,3 @@ function conectarse(){
 
 $conexion = conectarse();
 ?>
-
-
-<h3>CONEXION</h3>
