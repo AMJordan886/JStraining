@@ -11,6 +11,12 @@
     --hamburger-right: 1vw;
 }
 
+/* 
+En React si tengo que incrustar estilos y el atrib tiene guion medio - como box-sixing por ejemplo 
+se utiliza CamelCase =>
+style = {{boxSizing:"border-box"}}    
+*/
+
 html {
     box-sizing: border-box;
     font-family: var(--main-font);
